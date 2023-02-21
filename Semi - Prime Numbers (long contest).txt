@@ -1,0 +1,50 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool check(int a){
+    for (int i=2; i<a; i++){
+        if (a%i==0 && a>9){
+            int b = a/i;
+//            cout<<"i = "<<i<<" & b = "<<b<<endl;
+            int flag=0;
+            for (int j=2; j<i; j++){
+                if (i%j==0){
+                   flag=1;
+                   break;
+                }
+            }
+            for (int j=2; j<b; j++){
+                if (b%j==0){
+                   flag=1;
+                   break;
+                }
+            }
+            if (flag==0)
+                return true;
+        }
+    }
+    return false;
+}
+
+string min(int n){
+    for (int i=1; i<n; i++){
+        int b = n - i;
+//        cout<<i<<"  "<<b<<endl;
+        bool x = check(i);
+        bool y = check(b);
+//        cout<<" x = "<<x<<" & y = "<<y<<endl<<endl;
+        if (x==true && y==true)
+        return "YES";
+    }
+    return "NO";
+}
+int main() {
+	int n;
+	cin>>n;
+	for (int i=0; i<n; i++){
+	    int a;
+	    cin>>a;
+	    cout<<min(a)<<endl;
+	}
+	return 0;
+}

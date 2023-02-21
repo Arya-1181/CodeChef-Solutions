@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+using namespace std;
+/*
+long long min(long long n, long long k, vector<long long> v){
+    long long count = 0;
+    sort(v.begin(),v.end());
+    long long temp = 0;
+    for (long long i=0; i<n; i++){
+        if (v[i]>=k||v[i]+temp>=k){
+            count++;
+            temp = 0;
+        }
+/*
+        else if (v[i]+temp>=k){
+            count++;
+            temp = 0;
+        }
+
+/        else
+        temp++;
+    }
+    return count;
+}
+*/
+int main() {
+	int t;
+	cin>>t;
+	for (int i=0; i<t; i++){
+	    long long n,q;
+	    cin>>n>>q;
+	    vector <long long> v;
+	    for (long long j=0; j<n; j++){
+	        long long a;
+	        cin>>a;
+	        v.push_back(a);
+	    }
+	    sort(v.begin(),v.end());
+	    for (long long j=0; j<q; j++){
+	        long long k;
+	        cin>>k;
+	        long long count = 0;
+	        long long temp = 0;
+	        for (long long m=0; m<n; m++){
+	            if (v[m]>=k||v[m]+temp>=k){
+	                temp=0;
+	                count++;
+	            }
+	            else
+	            temp++;
+	        }
+	        cout<<count<<endl;
+	    }
+	}
+	return 0;
+}
+/*
+
+#include <bits/stdc++.h>
+using namespace std;
+
+long long min(long long n, long long k, vector<long long> v){
+    long long count = 0;
+    sort(v.begin(),v.end());
+    long long temp = 0;
+    for (long long i=0; i<n; i++){
+        if (v[i]>=k||v[i]+temp>=k){
+            count++;
+            temp = 0;
+        }
+/*
+        else if (v[i]+temp>=k){
+            count++;
+            temp = 0;
+        }
+
+/        else
+        temp++;
+    }
+    return count;
+}
+int main() {
+	int t;
+	cin>>t;
+	for (int i=0; i<t; i++){
+	    long long n,q;
+	    cin>>n>>q;
+	    vector <long long> v;
+	    for (long long j=0; j<n; j++){
+	        long long a;
+	        cin>>a;
+	        v.push_back(a);
+	    }
+	    for (long long j=0; j<q; j++){
+	        long long k;
+	        cin>>k;
+	        cout<<min(n,k,v)<<endl;
+	    }
+	}
+	return 0;
+}
+*/
